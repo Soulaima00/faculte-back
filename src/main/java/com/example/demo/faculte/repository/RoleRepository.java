@@ -1,8 +1,7 @@
 package com.example.demo.faculte.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.example.demo.faculte.entity.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
