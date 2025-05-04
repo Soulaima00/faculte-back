@@ -4,6 +4,10 @@ import com.example.demo.faculte.entity.Role;
 import com.example.demo.faculte.entity.User;
 import com.example.demo.faculte.repository.RoleRepository;
 import com.example.demo.faculte.repository.UserRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,5 +50,19 @@ public class AuthServiceImpl implements AuthService {
         return userRepository.findByEmail(email)
                 .filter(u -> u.getPassword().equals(password))
                 .orElse(null);
+    }
+    
+    @Override
+    public List<User> getAllEtudiants() {
+        return userRepository.findAll().stream()
+                .filter(u -> u.getRole().getName().equalsIgnoreCase("ETUDIANT"))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<User> getAllProfs() {
+        return userRepository.findAll().stream()
+                .filter(u -> u.getRole().getName().equalsIgnoreCase("PROFESSEUR"))
+                .collect(Collectors.toList());
     }
 }

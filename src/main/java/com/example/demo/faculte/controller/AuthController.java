@@ -3,6 +3,7 @@ package com.example.demo.faculte.controller;
 import com.example.demo.faculte.entity.User;
 import com.example.demo.faculte.service.AuthService;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*") // pour permettre les requêtes depuis Angular
+@CrossOrigin(origins = "*") // pour permettre les requêtes depuis Angulaar 
 public class AuthController {
 
     @Autowired
@@ -37,5 +38,15 @@ public class AuthController {
         } else {
             return "Email ou mot de passe incorrect !";
         }
+    }
+    
+    @GetMapping("/etudiants")
+    public List<User> getAllEtudiants() {
+        return authService.getAllEtudiants();
+    }
+
+    @GetMapping("/profs")
+    public List<User> getAllProfs() {
+        return authService.getAllProfs();
     }
 }
