@@ -59,6 +59,7 @@ public class AuthServiceImpl implements AuthService {
                 .collect(Collectors.toList());
     }
 
+
     @Override
     public List<User> getAllProfs() {
         return userRepository.findAll().stream()
