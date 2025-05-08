@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.faculte.entity.Post;
 import com.example.demo.faculte.service.PostService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {

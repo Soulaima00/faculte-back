@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.faculte.entity.Comment;
 import com.example.demo.faculte.service.CommentService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/comments")
 public class CommentController {

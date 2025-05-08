@@ -2,6 +2,8 @@ package com.example.demo.faculte.entity;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,6 +22,7 @@ public class Comment {
     private User auteur;
 
     @ManyToOne
+    @JsonBackReference
     private Post post;
 
 	public Long getId() {
