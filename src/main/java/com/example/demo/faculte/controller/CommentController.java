@@ -29,7 +29,7 @@ public class CommentController {
         return commentService.addComment(comment);
     }
 
-    // Modifier un commentaire (seulement son contenu)
+    // Modifier un commentaire (seulement le contenuuuu du commentaireee)
     @PutMapping("/{id}")
     public Comment updateComment(@PathVariable Long id, @RequestBody String contenu) {
         return commentService.updateComment(id, contenu);
